@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import CustomButton from "./CustomButton"
+import { CustomButton } from "./"
 
 export default function Navbar() {
   return (

@@ -9,7 +9,7 @@ import {CarDetails} from '.';
 
 export default function CarCard({ car }: CarCardProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const { city_mpg, combination_mpg, drive, cylinders, displacement, fuel_type, highway_mpg, model, transmission, make, year, class: carClass } = car;
+    const { city_mpg, drive, model, transmission, make } = car;
     const carRent = calculateRentPrice(car);
 
     return (

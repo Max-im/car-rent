@@ -40,6 +40,6 @@ export interface CarCardProps {
 export interface CarDetailsProps {
     car: ICar;
     isOpen: boolean;
-    closeModal: any;
+    closeModal: () => void;
 }
 

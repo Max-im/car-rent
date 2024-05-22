@@ -2,8 +2,9 @@ import { Fragment } from 'react';
 import Image from 'next/image';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import { CarDetailsProps } from '@/types';
+import { getCarImg } from '@/utils';
 
-export default function CarDetails({ car, isOpen, closeModal }: CarDetailsProps) {
+export default function CarDetails({ car, isOpen, closeModal, image }: CarDetailsProps) {
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -47,18 +48,18 @@ export default function CarDetails({ car, isOpen, closeModal }: CarDetailsProps)
 
                                     <div className='flex-1 flex flex-col gap-3'>
                                         <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
-                                            <Image src="/hero.png" alt='car model' fill priority className='object-contain' />
+                                            <Image src={image} alt='car model' fill priority className='object-contain' />
                                         </div>
 
                                         <div className='flex gap-3'>
                                             <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                                                <Image src="/hero.png" alt='car model' fill priority className='object-contain' />
+                                                <Image src={getCarImg(car, '29')} alt='car model' fill priority className='object-contain' />
                                             </div>
                                             <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                                                <Image src="/hero.png" alt='car model' fill priority className='object-contain' />
+                                                <Image src={getCarImg(car, '33')} alt='car model' fill priority className='object-contain' />
                                             </div>
                                             <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                                                <Image src="/hero.png" alt='car model' fill priority className='object-contain' />
+                                                <Image src={getCarImg(car, '13')} alt='car model' fill priority className='object-contain' />
                                             </div>
                                         </div>
                                     </div>

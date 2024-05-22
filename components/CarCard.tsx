@@ -4,13 +4,14 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { CustomButton } from '.'
 import { CarCardProps } from '@/types';
-import { calculateRentPrice } from '@/utils';
+import { calculateRentPrice, getCarImg } from '@/utils';
 import {CarDetails} from '.';
 
 export default function CarCard({ car }: CarCardProps) {
     const [isOpen, setIsOpen] = useState(false);
     const { city_mpg, drive, model, transmission, make } = car;
     const carRent = calculateRentPrice(car);
+    const mainImageUrl = getCarImg(car);
 
     return (
         <div className='car-card group'>
@@ -24,7 +25,7 @@ export default function CarCard({ car }: CarCardProps) {
             </p>
 
             <div className="relative w-full h-40 my-3 object-contan">
-                <Image src="/hero.png" className='object-contain' fill priority alt={car.model} />
+                <Image src={mainImageUrl} className='object-contain' fill priority alt={car.model} />
             </div>
 
             <div className="relative w-full flex mt-2">
@@ -53,7 +54,7 @@ export default function CarCard({ car }: CarCardProps) {
                 </div>
             </div>
 
-            <CarDetails isOpen={isOpen} car={car} closeModal={() => setIsOpen(false)} />
+            <CarDetails isOpen={isOpen} car={car} closeModal={() => setIsOpen(false)} image={mainImageUrl}/>
         </div>
     )
 }

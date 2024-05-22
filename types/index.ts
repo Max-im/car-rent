@@ -41,5 +41,6 @@ export interface CarDetailsProps {
     car: ICar;
     isOpen: boolean;
     closeModal: () => void;
+    image: string;
 }
 

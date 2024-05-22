@@ -44,6 +44,7 @@ export function getCarImg(car: ICar, angle?: string) {
     url.searchParams.append('zoomType', 'fullscreen');
     url.searchParams.append('modelYear', `${year}`);
     url.searchParams.append('angle', `${angle}`);
-
+    // https://loremflickr.com/640/480/transport
+    
     return `${url}`;
 }

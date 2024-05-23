@@ -44,3 +44,11 @@ export interface CarDetailsProps {
     image: string;
 }
 
+export interface FilterProps {
+    manufacturer:string;
+    model:string;
+    fuel: string;
+    year: number;
+    limit: number;
+}
+

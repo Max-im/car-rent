@@ -1,10 +1,16 @@
 import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { manufacturers } from "@/constants";
 import { ICar } from "@/types";
 import { fetchCars } from "@/utils";
-import Image from "next/image";
 
-export default async function Home() {
-  const carsData = await fetchCars();
+export default async function Home({ searchParams }) {
+  const carsData = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    model: searchParams.model || 2022,
+    year: searchParams.year || '',
+    limit: searchParams.limit || 8,
+    fuel: searchParams.fuel || '',
+  });
 
   const cars = !Array.isArray(carsData) || !carsData || !carsData.length ? [] : carsData; 
 

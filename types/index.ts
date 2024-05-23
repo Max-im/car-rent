@@ -58,3 +58,8 @@ export interface FilterProps {
     limit: number;
 }
 
+export interface ShowMoreProps {
+    isNext:boolean;
+    pageNumber: number
+}
+

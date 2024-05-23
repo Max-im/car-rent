@@ -37,6 +37,10 @@ export default async function Home({ searchParams }: any) {
               {cars.map((car: ICar) => <CarCard key={car.model} car={car} />)}
             </div>
             
+            <ShowMore
+              pageNumber={(searchParams.limit || 8) / 8}
+              isNext={(searchParams.limit || 8) > cars.length}
+            />
           </>
         )}
 

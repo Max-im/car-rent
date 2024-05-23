@@ -49,3 +49,14 @@ export function getCarImg(car: ICar, angle?: string) {
     
     return `${url}`;
 }
+
+
+export const updateSearchParams = (key: string, value: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+  
+    searchParams.set(key, value);
+  
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+  
+    return newPathname;
+  };

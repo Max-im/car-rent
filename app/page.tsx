@@ -1,9 +1,9 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
-import { manufacturers } from "@/constants";
+import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
+import { manufacturers, fuels, yearsOfProduction } from "@/constants";
 import { ICar } from "@/types";
 import { fetchCars } from "@/utils";
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: any) {
   const carsData = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
     model: searchParams.model || 2022,
@@ -26,15 +26,18 @@ export default async function Home({ searchParams }) {
         <div className="home__filters">
           <SearchBar />
           <div className="home__filter-container">
-            <CustomFilter title="fuel"/>
-            <CustomFilter title="year"/>
+            <CustomFilter title="fuel" payload={fuels} />
+            <CustomFilter title="year" payload={ yearsOfProduction}/>
           </div>
         </div>
 
         {cars.length > 0 && (
-          <div className="home__cars-wrapper">
-            {cars.map((car: ICar) => <CarCard key={car.model} car={car} />)}
-          </div>
+          <>
+            <div className="home__cars-wrapper">
+              {cars.map((car: ICar) => <CarCard key={car.model} car={car} />)}
+            </div>
+            
+          </>
         )}
 
         {cars.length === 0 && (
